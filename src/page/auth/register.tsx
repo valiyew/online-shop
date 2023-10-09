@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { Box, Button, Flex, InputBase, Paper, PasswordInput, Select, Title } from '@mantine/core'
 import { useForm, yupResolver } from '@mantine/form'
 import axios from 'axios'
+import {IMaskInput} from "react-imask"
 import * as yup from 'yup'
 
 const schema = yup.object({
@@ -53,8 +54,14 @@ export function Register() {
           <form onSubmit={form.onSubmit(onSubmit)}>
             <Flex direction="column" gap={22}>
               <InputBase label="Full name" {...form.getInputProps('fullName')} />
-              <InputBase label="Date of birth" {...form.getInputProps('dateOfBirth')} />
-              <InputBase type="number" label="Phone number" {...form.getInputProps('phoneNumber')} />
+              <InputBase label="Date of birth" {...form.getInputProps('dateOfBirth')} 
+              component={IMaskInput}
+              mask="00.00.0000"
+              />
+              <InputBase label="Phone number" {...form.getInputProps('phoneNumber')} 
+              component={IMaskInput}
+              mask="+998 00 (000) 00-00"
+              />
               <Select
                 label="gender"
                 data={[

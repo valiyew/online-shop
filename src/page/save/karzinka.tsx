@@ -7,6 +7,8 @@ import { IApi } from 'page/all-products/type'
 
 import Navbar from 'components/navbar'
 
+import './style.css'
+
 interface KarzinkaProps {}
 
 const Karzinka = () => {
@@ -95,6 +97,7 @@ const Karzinka = () => {
                 .filter(product => product.title.toLowerCase().includes(search.toLowerCase()))
                 .map(prdouct => (
                   <Box
+                  className='itemProduct'
                     key={prdouct.id}
                     sx={{
                       cursor: 'pointer',
@@ -102,7 +105,7 @@ const Karzinka = () => {
                       border: '2px solid #ccc',
                       padding: '20px 20px',
                       borderRadius: '20px',
-                      height: '600px'
+                      height: '650px'
                     }}
                   >
                     <Box>
@@ -120,13 +123,13 @@ const Karzinka = () => {
                         <h1 style={{ fontSize: '24px' }}>{prdouct.title}</h1>
                         <p style={{ color: 'blue', fontSize: '18px' }}>{prdouct.brand}</p>
                       </Flex>
-                      <Flex sx={{ alignItems: 'center', justifyContent: 'space-between', marginTop: '20px' }}>
+                      <Flex sx={{ alignItems: 'center', justifyContent: 'space-between', marginTop: '10px' }}>
                         <p className="chegirma" style={{ color: '#ccc', fontSize: '18px', fontWeight: '500' }}>
                           {prdouct.price + 100}$
                         </p>
                         <p style={{ color: 'blue', fontSize: '18px', fontWeight: '500', textDecoration: 'lineThrough' }}>{prdouct.price}$</p>
                       </Flex>
-                      <p style={{ fontSize: '18px', fontWeight: '500', marginTop: '20px' }}>{prdouct.description}</p>
+                      <p style={{ fontSize: '18px', fontWeight: '500', marginTop: '10px' }}>{prdouct.description}</p>
                     </Box>
                   </Box>
                 ))

@@ -13,8 +13,17 @@
   top: 3.4%;
   right: 3.9%;
   border-radius: 20px;
+  /* color: ; */
 }
 
 .container .chegirma {
   text-decoration: line-through;
+}
+
+.itemProduct {
+  transition: 0.3s;
+}
+
+.itemProduct:hover {
+  transform: translateY(-20px);
 }

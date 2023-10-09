@@ -26,9 +26,13 @@ export default function Login() {
     try {
       const res = await axios.post(baseURL, values)
 
+      const userToken = res.data.data.accessToken
+
+      localStorage.setItem('userToken', userToken)
+
       console.log(res.data)
 
-      navigate('/dashboard/products')
+     window.location.href = "/"
     } catch (err: any) {
       console.log('error = ', err)
     } finally {
